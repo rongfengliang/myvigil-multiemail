@@ -8,7 +8,6 @@ use std::net::{TcpStream, ToSocketAddrs};
 use std::sync::Arc;
 use std::sync::RwLock;
 use std::thread;
-#![feature(duration_as_u128)];
 use std::time::{Duration, SystemTime};
 use time;
 
