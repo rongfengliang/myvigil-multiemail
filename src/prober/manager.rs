@@ -309,7 +309,7 @@ fn proceed_rabbitmq_queue_probe(
 
     (false, None)
 }
-
+#![feature(duration_as_u128)]
 fn dispatch_polls() {
     // Probe hosts
     for probe_replica in map_poll_replicas() {
@@ -329,7 +329,6 @@ fn dispatch_polls() {
                 if let Some(ref mut node) = probe.nodes.get_mut(&probe_replica.1) {
                     if let Some(ref mut replica) = node.replicas.get_mut(&probe_replica.2) {
                         replica.status = replica_status;
-                        #![feature(duration_as_u128)]
                         replica.metrics.latency =
                             replica_latency.map(|duration| duration.as_millis() as u64);
                     }
