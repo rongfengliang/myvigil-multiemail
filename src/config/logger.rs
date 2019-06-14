@@ -4,7 +4,6 @@
 // Copyright: 2018, Valerian Saliou <valerian@valeriansaliou.name>
 // License: Mozilla Public License v2.0 (MPL v2.0)
 extern crate log;
-use log;
 use log::{Level, LevelFilter, Metadata, Record, SetLoggerError};
 
 pub struct ConfigLogger;

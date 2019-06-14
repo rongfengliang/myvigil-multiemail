@@ -28,7 +28,6 @@ use crate::prober::mode::Mode;
 use crate::APP_CONF;
 
 const PROBE_HOLD_MILLISECONDS: u64 = 250;
-#![feature(duration_as_u128)]
 lazy_static! {
     pub static ref STORE: Arc<RwLock<Store>> = Arc::new(RwLock::new(Store {
         states: ServiceStates {
@@ -330,7 +329,7 @@ fn dispatch_polls() {
                 if let Some(ref mut node) = probe.nodes.get_mut(&probe_replica.1) {
                     if let Some(ref mut replica) = node.replicas.get_mut(&probe_replica.2) {
                         replica.status = replica_status;
-
+                        #![feature(duration_as_u128)]
                         replica.metrics.latency =
                             replica_latency.map(|duration| duration.as_millis() as u64);
                     }
