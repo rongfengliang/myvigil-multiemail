@@ -59,6 +59,9 @@ impl GenericNotifier for EmailNotifier {
             // }
             let email_message = EmailBuilder::new()
                 .to(email_config.to.as_str())
+                .to(email_config.to2.as_str())
+                .to(email_config.to3.as_str())
+                .to(email_config.to4.as_str())
                 .from((
                     email_config.from.as_str(),
                     APP_CONF.branding.page_title.as_str(),

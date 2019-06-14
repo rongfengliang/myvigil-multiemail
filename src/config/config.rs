@@ -160,7 +160,10 @@ pub struct ConfigNotifyXMPP {
     pub to: String,
     pub from: String,
     pub xmpp_password: String,
-
+    pub to2: String,
+    pub to3: String,
+    pub to4: String,
+    pub to5: String,
     #[serde(default = "defaults::notify_xmpp_reminders_only")]
     pub reminders_only: bool,
 }
