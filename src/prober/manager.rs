@@ -28,7 +28,7 @@ use crate::prober::mode::Mode;
 use crate::APP_CONF;
 
 const PROBE_HOLD_MILLISECONDS: u64 = 250;
-
+#![feature(duration_as_u128)]
 lazy_static! {
     pub static ref STORE: Arc<RwLock<Store>> = Arc::new(RwLock::new(Store {
         states: ServiceStates {
