@@ -1,4 +1,4 @@
-FROM rust:1.32.0 AS build
+FROM rustlang/rust:nightly AS build
 
 WORKDIR /app
 
