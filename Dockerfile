@@ -6,7 +6,7 @@ COPY ./res/assets/ ./res/assets/
 COPY target/release/vigil /usr/local/bin/vigil
 
 RUN apt-get update
-RUN apt-get install -y libssl1.0.0 libssl-dev
+RUN apt-get install -y libstrophe-dev libssl-dev
 
 CMD [ "vigil", "-c", "/etc/vigil.cfg" ]
 
