@@ -8,6 +8,7 @@ use std::net::{TcpStream, ToSocketAddrs};
 use std::sync::Arc;
 use std::sync::RwLock;
 use std::thread;
+#![feature(duration_as_u128)]
 use std::time::{Duration, SystemTime};
 use time;
 
@@ -309,7 +310,6 @@ fn proceed_rabbitmq_queue_probe(
 
     (false, None)
 }
-#![feature(duration_as_u128)]
 fn dispatch_polls() {
     // Probe hosts
     for probe_replica in map_poll_replicas() {
