@@ -8,7 +8,7 @@ COPY . /app
 
 RUN rustup install nightly-2019-01-17
 
-RUN rustup  toolchain  default nightly-2019-01-17
+RUN rustup   default nightly-2019-01-17-x86_64-unknown-linux-gnu
 
 RUN cargo -V
 
