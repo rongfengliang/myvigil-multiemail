@@ -1,14 +1,31 @@
-FROM debian:stretch
+FROM rustlang/rust:nightly AS build
+
+USER root
+
+WORKDIR /app
+
+COPY . /app
+
+RUN rustup install nightly-2019-01-17
+
+RUN rustup  toolchain  default nightly-2019-01-17
+
+RUN cargo -V
+
+RUN cargo build --release
+
+FROM debian:stretch-slim
 
 WORKDIR /usr/src/vigil
 
 COPY ./res/assets/ ./res/assets/
-COPY target/release/vigil /usr/local/bin/vigil
+COPY --from=build /app/target/release/vigil /usr/local/bin/vigil
+
+COPY ./res/assets/ ./res/assets/
 
 RUN apt-get update
 RUN apt-get install -y libstrophe-dev libssl-dev
-# RUN ln -s /lib/x86_64-linux-gnu/libssl.so.1.1 /usr/lib/libssl.so.10
-# RUN ln -s /lib/x86_64-linux-gnu/libcrypto.so.1.1 /usr/lib/libcrypto.so.10
+
 CMD [ "vigil", "-c", "/etc/vigil.cfg" ]
 
 EXPOSE 8080
