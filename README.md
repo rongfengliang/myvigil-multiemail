@@ -44,7 +44,7 @@ to4 = "status@crisp.chat"
 to5 = "status@crisp.chat"
 ```
 
-## will added features
+## will adding features
 
 * webhook integration
 
