@@ -25,6 +25,12 @@ RUN cargo -V
 RUN cargo build --release
 ```
 
+## docker images
+
+```code
+docker push dalongrong/vigil
+```
+
 ## added  features
 
 * multi email send
