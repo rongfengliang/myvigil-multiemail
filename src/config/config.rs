@@ -119,10 +119,6 @@ pub struct ConfigPluginsRabbitMQ {
 pub struct ConfigNotifyEmail {
     pub to: String,
     pub from: String,
-    pub to2: String,
-    pub to3: String,
-    pub to4: String,
-    pub to5: String,
     #[serde(default = "defaults::notify_email_smtp_host")]
     pub smtp_host: String,
 
