@@ -51,18 +51,12 @@ impl GenericNotifier for EmailNotifier {
             message.push_str("\n");
             message.push_str("To unsubscribe, please edit your status page configuration.");
             debug!("will send email notification with message: {}", &message);
-            // Build up the email
-            // let emails = email_config.to.as_str().split_whitespace();
-            // let mut emailBuilder  =EmailBuilder::new();
-            // for email in emails {
-            //   emailBuilder.to(email);
-            // }
-            let email_message = EmailBuilder::new()
-                .to(email_config.to.as_str())
-                .to(email_config.to2.as_str())
-                .to(email_config.to3.as_str())
-                .to(email_config.to4.as_str())
-                .to(email_config.to5.as_str())
+            let emails: Vec<_>  = email_config.to.as_str().split(',').collect();
+            let mut email_builder  =EmailBuilder::new();
+            for item in emails {
+              email_builder= email_builder.to(item);
+            }
+            let email_message = email_builder
                 .from((
                     email_config.from.as_str(),
                     APP_CONF.branding.page_title.as_str(),
