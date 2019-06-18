@@ -35,7 +35,7 @@ docker push dalongrong/vigil
 
 * multi email send
 
-current with hardcode for send multi emails
+multi email will split with `,`
 
 config:
 
@@ -43,14 +43,9 @@ config:
 [notify.email]
 
 from = "status@crisp.chat"
-to = "status@crisp.chat"
-to2 = "status@crisp.chat"
-to3 = "status@crisp.chat"
-to4 = "status@crisp.chat"
-to5 = "status@crisp.chat"
+to = "status@crisp.chat,status2@crisp.chat,status@crisp.chat"
 ```
 
 ## will adding features
 
 * webhook integration
-
