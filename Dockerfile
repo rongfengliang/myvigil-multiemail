@@ -24,7 +24,7 @@ COPY --from=build /app/target/release/vigil /usr/local/bin/vigil
 COPY ./res/assets/ ./res/assets/
 
 RUN apt-get update
-RUN apt-get install -y libstrophe-dev libssl-dev
+RUN apt-get install -y libstrophe-dev openssl  libssl-dev
 
 CMD [ "vigil", "-c", "/etc/vigil.cfg" ]
 
