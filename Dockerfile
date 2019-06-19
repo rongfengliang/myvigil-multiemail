@@ -6,9 +6,9 @@ WORKDIR /app
 
 COPY . /app
 
-RUN rustup install nightly-2019-01-17
+RUN rustup install nightly-2019-05-14
 
-RUN rustup   default nightly-2019-01-17-x86_64-unknown-linux-gnu
+RUN rustup   default nightly-2019-05-14
 
 RUN cargo -V
 
